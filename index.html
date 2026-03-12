@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cronómetro de Competencia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cronómetro Pro</h1>
+        <div id="display">00:00:00.00</div>
+        
+        <div class="controls">
+            <button id="startBtn">Iniciar</button>
+            <button id="captureBtn" disabled>Capturar Llegada</button>
+            <button id="resetBtn">Reiniciar</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Tiempo</th>
+                    <th>Diferencia con el 1°</th>
+                </tr>
+            </thead>
+            <tbody id="resultsTable"></tbody>
+        </table>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
