@@ -1,12 +1,12 @@
 let startTime;
 let elapsedTime = 0;
 let timerInterval;
-let times = []; // Aquí guardamos los objetos de competidores
+let times = []; // aquí guardo cada corredor que pasa la meta
 
 const display = document.getElementById('display');
 const resultsTable = document.getElementById('resultsTable');
 
-// Función para formatear el tiempo
+// Función para formatear el cronometro del tiempo
 function timeToString(time) {
     let diffInHrs = time / 3600000;
     let hh = Math.floor(diffInHrs);
@@ -19,7 +19,7 @@ function timeToString(time) {
     return `${mm.toString().padStart(2, "0")}:${ss.toString().padStart(2, "0")}.${ms.toString().padStart(2, "0")}`;
 }
 
-// Iniciar cronómetro
+// Para dar inicio al cronómetro
 document.getElementById('startBtn').onclick = () => {
     startTime = Date.now() - elapsedTime;
     timerInterval = setInterval(() => {
@@ -29,13 +29,13 @@ document.getElementById('startBtn').onclick = () => {
     document.getElementById('captureBtn').disabled = false;
 };
 
-// Capturar llegada (La parte clave de tu tarea)
+// Capturar la llegada del corredor que cruzo la meta
 document.getElementById('captureBtn').onclick = () => {
     const currentCapture = elapsedTime;
     let diff = 0;
 
     if (times.length > 0) {
-        // Diferencia respecto al primero (índice 0)
+        // Diferencia respecto al primer corredor o rango mas alto
         diff = currentCapture - times[0];
     }
 
@@ -52,7 +52,7 @@ function renderTable(time, diff) {
     resultsTable.innerHTML += row;
 }
 
-// Reiniciar
+// Reiniciar el cronometro
 document.getElementById('resetBtn').onclick = () => {
     clearInterval(timerInterval);
     display.innerHTML = "00:00:00.00";
