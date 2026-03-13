@@ -2,30 +2,40 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Cronómetro de Competencia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronómetro Dark Mode</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Cronómetro Pro</h1>
-        <div id="display">00:00:00.00</div>
-        
-        <div class="controls">
-            <button id="startBtn">Iniciar</button>
-            <button id="captureBtn" disabled>Capturar Llegada</button>
-            <button id="resetBtn">Reiniciar</button>
-        </div>
+    <div class="dashboard">
+        <aside class="controls">
+            <h2>Panel</h2>
+            <button id="startBtn" class="btn-start">Iniciar</button>
+            <button id="captureBtn" class="btn-capture" disabled>Capturar</button>
+            <button id="resetBtn" class="btn-reset">Reiniciar</button>
+        </aside>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Tiempo</th>
-                    <th>Diferencia con el 1°</th>
-                </tr>
-            </thead>
-            <tbody id="resultsTable"></tbody>
-        </table>
+        <main class="timer-display">
+            <div id="display">00:00.00</div>
+            <p>TIEMPO DE CARRERA</p>
+        </main>
+
+        <section class="results">
+            <h3>Registros</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pos</th>
+                            <th>Tiempo</th>
+                            <th>Dif.</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultsTable">
+                        </tbody>
+                </table>
+            </div>
+        </section>
     </div>
     <script src="app.js"></script>
 </body>
